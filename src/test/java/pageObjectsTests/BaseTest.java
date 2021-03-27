@@ -16,14 +16,32 @@ public class BaseTest {
     protected WebDriver driver;
     protected String username;
     protected String password;
+    protected String browser;
 
     @Parameters({"username", "password", "browser"})
     @BeforeMethod
-    public void startUp(String username, String password, String browser) {
-        BrowserType browserType = browser.equals("chrome") ? BrowserType.CHROME : BrowserType.FIREFOX;
-        driver = BrowserFabric.getDriver(browserType);
+    public void startUp(String username, String password, String browserName) throws NoSuchMethodException {
+        BrowserType browser;
+        switch (browserName) {
+            case "CHROME":
+                browser = BrowserType.CHROME;
+                break;
+            case "FIREFOX":
+                browser = BrowserType.FIREFOX;
+                break;
+            case "EDGE":
+                browser = BrowserType.EDGE;
+                break;
+            case "OPERA":
+                browser = BrowserType.OPERA;
+                break;
+            default:
+                throw new NoSuchMethodException("Browser not defined");
+        }
         this.username = username;
         this.password = password;
+        this.browser = browserName;
+        driver = BrowserFabric.getDriver(browser);
     }
 
     @AfterMethod
