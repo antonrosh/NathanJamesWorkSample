@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Master Suite Opera" parallel="classes" thread-count="3">
+    <parameter name="username" value="njdemo@njtest.com"/>
+    <parameter name="password" value="njdemo1234"/>
+    <parameter name="browser" value="opera"/>
+    <test name="All tests">
+        <classes>
+            <class name="pageObjectsTests.LoginTest">
+                <methods>
+                    <include name="loginTest_loginToAppUsingCorrectCredentials"/>
+                    <include name="loginTest_loginToAppUsingIncorrectCredentialsUsername"/>
+                    <include name="loginTest_loginToAppUsingIncorrectCredentialsPassword"/>
+                </methods>
+            </class>
+            <class name="pageObjectsTests.ResetPasswordTest">
+                <methods>
+                    <include name="resetPasswordTest_resetWithCorrectEmail"/>
+                    <include name="resetPasswordTest_resetWithIncorrectEmail"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
