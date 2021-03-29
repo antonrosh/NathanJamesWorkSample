@@ -14,7 +14,6 @@ There are 4 different browsers configuration set up [Google Chrome, Mozilla Fire
 
 # Execution:
 * Clone the repository.
-* Open command prompt and go to web-test directory.
 * Navigate to \NathanJamesWorkSample\src\test\java\testSuites to find Test Suites for each browser.
 
 # Logging:
